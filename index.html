@@ -1,0 +1,165 @@
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="Submit.css">
+</head>
+<body>
+
+
+<div class="contant-form">
+<form action=""  onSubmit="return validation()">
+	<!--  return validate means it take the T/F value of function then give to action it gives F value & action didnt respond -->
+	<div>
+<lable>Your Name</lable>
+<input type="text" class="class" id="NAME" name="full name"  placeholder="Your Name">
+<span id="NAMEERROR" style="color: red;"></span>
+</div><div>
+
+	<lable>Password</lable>
+<input type="Password" class="class" id="PASSWORD" name="full name"  placeholder="CHOOSE A PASSWORD GREATER THAN 8 & LESS THAN 15 CHARACTERS">
+<span id="PASSWORDERROR" style="color: red;"></span>
+</div>
+
+<div>
+<lable>Phone Number</lable>
+<input type="text" class="class" id="NUMBER" name="number" placeholder="Phone Number">
+<span id="PHONEERROR" style="color: red;"></span>
+</div>
+
+
+
+<div>
+<lable>Your Email</lable>
+<input type="" class="class" id="EMAIL" name=""  placeholder="Your Email">
+<span id="EMAILERROR" style="color: red;"></span>
+</div>
+
+
+
+<input type="submit" value="Submit">
+</form>
+
+
+<!-- <script src="submit.js"></script> -->
+
+<script>
+	
+
+function validation() {
+	
+	let name=document.getElementById('NAME').value;     		 //alert(name);
+	let password=document.getElementById('PASSWORD').value;    //alert(password);
+	let phone=document.getElementById('NUMBER').value;			//alert(phone);
+	let email=document.getElementById('EMAIL').value; 
+	let pattern=/^[^ ]+@[^ ]+\.[a-z]{2,3}$/; 
+
+	//alert(pattern);
+	document.getElementById('NAMEERROR').innerHTML="";
+	document.getElementById('PASSWORDERROR').innerText="";
+	document.getElementById('PASSWORDERROR').innerHTML="";
+	document.getElementById('PHONEERROR').innerText="";
+	document.getElementById('EMAILERROR').innerHTML="";
+
+
+
+	if(name==""){
+		document.getElementById('NAMEERROR').innerHTML="* Name is Required"
+		return false
+	}
+	// Passeord Error Way 1
+	// if(password.length<8 || password.length>15){
+	// 	document.getElementById('PASSWORDERROR').innerHTML="* Password Error"
+	//  return false 
+	// }
+
+	// Passeord Error Way 2 More afficient
+	if(password.length<8){
+		document.getElementById('PASSWORDERROR').innerText=
+		"* Password is less than 8 Characters"
+		return false
+	}
+	else if(password.length>15){
+		document.getElementById('PASSWORDERROR').innerHTML=
+		"* Password is greater than 15 Characters"
+		return false
+	}
+
+	// Phone Error way 1
+	// if(phone==""|| isNaN(phone)){
+	// 	document.getElementById('PHONEERROR').innerHTML=
+	// 	"* Phone number should only contain Numbers"
+	// 	return false
+	// }
+
+	// Phone Error Way 2
+	if(phone==""){
+		document.getElementById('PHONEERROR').innerText=
+		"* Enter a Phone Number"
+		return false
+	}
+	else if(isNaN(phone)){
+		document.getElementById('PHONEERROR').innerHTML=
+		"* Number should only contains Numerics values"
+		return false
+	}
+
+
+
+
+
+
+	// if(email.charAt('@')<=0){
+	// 	document.getElementById('EMAILERROR').innerHTML=
+	// 	"* @"
+	// 	return false
+	// }
+
+	// function validation(){
+
+		if(email==""){
+			document.getElementById("EMAILERROR").innerHTML=
+			"* Email required"
+			return false
+		}
+		
+
+		if(email.match(pattern)){
+			document.getElementById("EMAILERROR").innerHTML=
+			"";
+
+		}
+		else{
+			document.getElementById("EMAILERROR").innerHTML=
+			"* Please Enter a Vlaid Email Adress";
+			return false;
+
+		}
+
+		
+	}
+
+
+
+
+// }
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+<!-- <lable>Country</lable>
+<select>
+<option value="Country">Select Country</option>
+<option value="USA">USA</option>
+<option value="PAKISTAN">PAKISTAN</option>
+<option value="CHINA">CHINA</option>
+<option value="UK">UK</option>
+</select> -->
